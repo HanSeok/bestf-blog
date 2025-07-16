@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2025-07-16-example.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-07-16-example"
+              "title": "index"
             }
           }
         ],
@@ -59,7 +59,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "파일 탐색기"
+              "title": "Files"
             }
           },
           {
@@ -93,7 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 261.5
   },
   "right": {
     "id": "86cab82958d743ba",
@@ -181,26 +181,37 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:빠른 전환기 열기": false,
-      "graph:그래프 뷰 열기": false,
-      "canvas:새 캔버스 만들기": false,
-      "daily-notes:오늘의 일일 노트 열기": false,
-      "templates:템플릿 삽입": false,
-      "command-palette:명령어 팔레트 열기": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
       "obsidian-git:Open Git source control": false
     }
   },
   "active": "70442ea0510e1e11",
   "lastOpenFiles": [
+    "index.md~",
+    "categories.html",
+    "tags.html",
+    "category/dev.md",
+    "tag/jekyll.md",
+    "category",
+    "tag",
+    "_layouts/category.html",
+    "_layouts/tag.html",
+    "_layouts",
+    "_posts/2025-07-16-example.md",
     "assets/images/꿈돌이_낚시_생활_gpt.png",
     "assets/images",
     "assets",
     "index.md",
-    "_posts/2025-07-16-example.md",
     "_posts/2025-07-16-obsidian연결.md",
     "_posts/2025-07-16-startpost.md",
     "_posts/2025-07-16-start-post.md"
