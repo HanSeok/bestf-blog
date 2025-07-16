@@ -1,0 +1,13 @@
+# OS 관련
+.DS_Store
+Thumbs.db
+
+# Obsidian workspace 설정 (로컬 고유 상태)
+.obsidian/workspace.json
+
+# 백업이나 임시파일
+*.bak
+*.tmp
+
+# 로그
+*.log
