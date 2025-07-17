@@ -1,4 +1,4 @@
-baseURL = "https://blog.bestf.net/"
+baseURL = "https://hanseok.github.io/bestf-blog/"
 title = "Your Hugo Blog"
 theme = "book"
 languageCode = "ko"
