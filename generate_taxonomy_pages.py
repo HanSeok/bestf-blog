@@ -6,7 +6,7 @@ POSTS_DIR = "_posts"
 TAGS_DIR = "tag"
 CATEGORIES_DIR = "category"
 TEMPLATE = """---
-layout: tag
+layout: {type}
 title: "{name}"
 tag: "{name}"
 permalink: /{type}/{name}/
