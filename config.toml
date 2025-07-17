@@ -2,6 +2,7 @@ baseURL = "https://blog.bestf.net/"
 title = "Your Hugo Blog"
 theme = "book"
 languageCode = "ko"
+publishDir = "public"
 
 [taxonomies]
   tag = "tags"
