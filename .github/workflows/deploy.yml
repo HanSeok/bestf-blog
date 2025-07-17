@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main  # 또는 master
+permissions:
+  contents: write  # ✅ 이 줄이 중요!
 
 jobs:
   build-deploy:
