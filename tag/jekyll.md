@@ -1,6 +1,6 @@
 ---
 layout: tag
-tag: jekyll
-title: 태그: jekyll
+title: "jekyll"
+tag: "jekyll"
 permalink: /tag/jekyll/
 ---

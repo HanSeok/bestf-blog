@@ -1,6 +1,6 @@
 ---
-layout: category
-category: Dev
-title: 카테고리: Dev
-permalink: /category/Dev/
+layout: tag
+title: "dev"
+tag: "dev"
+permalink: /category/dev/
 ---
