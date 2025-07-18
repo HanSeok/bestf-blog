@@ -1,4 +1,9 @@
 baseURL = 'https://blog.bestf.net/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = '의식의 흐름,관심사,일상 기록' 
 theme = 'm10c'
+
+#  author = "꿈돌이"
+#  description = "일상과 관심사에 대한 끄적이"
+#  avatar = "images/avatar.jpg"  # static/images/avatar.jpg 위치에 파일 필요
+#  menu_item_separator = " - "
