@@ -1,13 +1,44 @@
 baseURL = 'https://blog.bestf.net/'
-languageCode = 'en-us'
+#languageCode = 'en-us'
+languageCode = "ko-kr"
 title = '꿈돌이 끄적끄적'
 theme = 'm10c'
 
-[params]
-  description = '의식의 흐름,관심사,일상 기록' 
-  avatar = "images/avatar.jpg"
+publishDir = "public"
 
-#  author = "꿈돌이"
-#  description = "일상과 관심사에 대한 끄적이"
-#  avatar = "images/avatar.jpg"  # static/images/avatar.jpg 위치에 파일 필요
-#  menu_item_separator = " - "
+# --- 메뉴 설정 ---
+# 상단에 표시될 메뉴를 설정합니다.
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 3
+
+[params]
+  author = "꿈돌이"
+  #description = '의식의 흐름,관심사,일상 기록' 
+  description = "일상과 관심사에 대한 끄적이"
+  avatar = "/images/avatar.png"
+  menu_item_separator = " - "
+
+  # 소셜 미디어 링크 설정
+  # 아이콘 이름은 https://tabler-icons.io/ 에서 찾아볼 수 있습니다. (예: brand-github)
+  [[params.social]]
+    icon = "brand-github"
+    name = "GitHub"
+    url = "https://github.com/<USERNAME>"
+  [[params.social]]
+    icon = "brand-x"
+    name = "X (Twitter)"
+    url = "https://twitter.com/<USERNAME>"
