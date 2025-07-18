@@ -1,8 +1,20 @@
 baseURL = "https://hanseok.github.io/bestf-blog/"
 title = "Your Hugo Blog"
-theme = "book"
+# theme = "book"
+# theme = "m10c"
 languageCode = "ko"
 publishDir = "public"
+
+[params]
+  author = "Your Name"
+  description = "A simple description"
+  avatar = "images/avatar.jpg"  # static/images/avatar.jpg 위치에 파일 필요
+  menu_item_separator = " - "
+
+[params.style]
+  backgroundColor = "#fff"
+  textColor = "#222"
+  primaryColor = "#4f6fad"
 
 [taxonomies]
   tag = "tags"
