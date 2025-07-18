@@ -1,19 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Jekyll on My New Hugo Site</title>
-    <link>https://example.org/tags/jekyll/</link>
-    <description>Recent content in Jekyll on My New Hugo Site</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 16 Jul 2025 17:54:00 +0900</lastBuildDate>
-    <atom:link href="https://example.org/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Jekyll 커스터마이징 예제</title>
-      <link>https://example.org/posts/2025-07-16-example/</link>
-      <pubDate>Wed, 16 Jul 2025 17:54:00 +0900</pubDate>
-      <guid>https://example.org/posts/2025-07-16-example/</guid>
-      <description>&lt;p&gt;문서의 속성을 추가해 봅니다.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;layout&#xA;title&#xA;date&#xA;categories&#xA;tags&#xA;thumbnail &#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;어떻게 보일지 궁금하네요&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jekyll on My New Hugo Site</title><link>https://example.org/tags/jekyll/</link><description>Recent content in Jekyll on My New Hugo Site</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 16 Jul 2025 17:54:00 +0900</lastBuildDate><atom:link href="https://example.org/tags/jekyll/index.xml" rel="self" type="application/rss+xml"/><item><title>Jekyll 커스터마이징 예제</title><link>https://example.org/posts/2025-07-16-example/</link><pubDate>Wed, 16 Jul 2025 17:54:00 +0900</pubDate><guid>https://example.org/posts/2025-07-16-example/</guid><description>&lt;p>문서의 속성을 추가해 봅니다.&lt;/p>
+&lt;pre tabindex="0">&lt;code>layout
+title
+date
+categories
+tags
+thumbnail 
+&lt;/code>&lt;/pre>&lt;p>어떻게 보일지 궁금하네요&lt;/p></description></item></channel></rss>

@@ -1,0 +1,54 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://example.org/tags/hugo/"><meta property="og:site_name" content="My New Hugo Site"><meta property="og:title" content="Hugo"><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><title>Hugo | My New Hugo Site</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://example.org/tags/hugo/><link rel=stylesheet href=/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.c3da4a3b9d33921aeca03c9d754ffa75140c223ab47d9f7f6011399f9a0d5151.js integrity="sha256-w9pKO50zkhrsoDyddU/6dRQMIjq0fZ9/YBE5n5oNUVE=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://example.org/tags/hugo/index.xml title="My New Hugo Site"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>My New Hugo Site</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>Hugo</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav><ul><li class=book-section-flat><span>Categories</span><ul><li class="flex justify-between"><a href=/categories/dev/>Dev</a>
+<span>2</span></li><li class="flex justify-between"><a href=/categories/github/>Github</a>
+<span>2</span></li></ul></li><li class=book-section-flat><span>Tags</span><ul><li class="flex justify-between"><a href=/tags/dev/>Dev</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/github/>Github</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/github-pages/>Github-Pages</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/hugo/>Hugo</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/obsidian/>Obsidian</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/jekyll/>Jekyll</a>
+<span>1</span></li></ul></li></ul></nav></aside></header><article class="markdown book-post"><h2><a href=/posts/2025-07-17-hugo%EB%A1%9C-%EB%B3%80%EA%B2%BD/>hugo 로 변경 작업 진행해 봅니다.</a></h2><div class="flex align-center text-small book-post-date"><img src=/svg/calendar.svg class=book-icon alt>
+<span>July 17, 2025</span></div><div class=text-small><a href=/categories/dev/>Dev</a>,
+<a href=/categories/github/>Github</a></div><div class=text-small><a href=/tags/dev/>Dev</a>,
+<a href=/tags/github/>Github</a>,
+<a href=/tags/github-pages/>Github-Pages</a>,
+<a href=/tags/hugo/>Hugo</a>,
+<a href=/tags/obsidian/>Obsidian</a></div><p><p>자동생성
+페이지 확인을 하는데 있어서 jekyll 는 ruby로 만들어서인지
+의미를 모르는 부분이 많아서 수정이 어렵다.</p><p>다른것도 모르지만 golang 으로 생성되었다는 hugo 가 보여서
+변경을 진행해 본다.</p><hr><ol><li>hugo 테마 선택
+- <a href=https://themes.gohugo.io/>https://themes.gohugo.io/</a>
+- 엄청 많다. ㅠ
+- book 를 사용해 보겠당 ^^</li><li>hugo 프로젝트 새로 만들기
+jekyll 로 만들어 사용하고 있었는데<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash></code></pre></div></li></ol><p>hugo new site my-hugo-site
+cd my-hugo-site
+git init
+git submodule add <a href=https://github.com/alex-shpak/hugo-book.git>https://github.com/alex-shpak/hugo-book.git</a> themes/book</p><pre tabindex=0><code>		나는 기존에 jekyll 로 시작해서 hugo new 로 생성한 디렉토리 내부것을 기존 디렉토리로 이동해 버렸다.  assets 부분이외 충돌없었음, assets은 이미지 하나 있던것이라. 그냥 무시하고 덮어씀
+	
+1. post 내용 변경이 필요 (gpt)
+	```yaml
+	# Jekyll
+---
+layout: post
+title: &#34;Hello World&#34;
+date: 2023-05-20
+categories: [dev, github]
+tags: [jekyll, github-pages]
+---
+
+# Hugo
+---
+title: &#34;Hello World&#34;
+date: 2023-05-20
+categories: [&#34;dev&#34;, &#34;github&#34;]
+tags: [&#34;jekyll&#34;, &#34;github-pages&#34;]
+---
+</code></pre><ol><li>_posts 하위 데이터 이동<ol><li>content/posts 로 이동 변경했음.</li><li><code>hugo -d docs</code><ol><li>WARN 이 상당히 많이 나타남 (내용 수정이 필요할듯. )</li></ol></li></ol></li></ol></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav><ul><li class=book-section-flat><span>Categories</span><ul><li class="flex justify-between"><a href=/categories/dev/>Dev</a>
+<span>2</span></li><li class="flex justify-between"><a href=/categories/github/>Github</a>
+<span>2</span></li></ul></li><li class=book-section-flat><span>Tags</span><ul><li class="flex justify-between"><a href=/tags/dev/>Dev</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/github/>Github</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/github-pages/>Github-Pages</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/hugo/>Hugo</a>
+<span>1</span></li><li class="flex justify-between"><a href=/tags/obsidian/>Obsidian</a>
+<span>2</span></li><li class="flex justify-between"><a href=/tags/jekyll/>Jekyll</a>
+<span>1</span></li></ul></li></ul></nav></div></aside></main></body></html>
