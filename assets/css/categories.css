@@ -1,0 +1,135 @@
+/* Hierarchical Categories Styling */
+
+/* Categories list */
+.categories-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+/* Parent category item */
+.category-item {
+  margin-bottom: 1rem;
+}
+
+.parent-category {
+  font-weight: bold;
+}
+
+.parent-category > a {
+  font-size: 1.2rem;
+  color: #dad865; /* Theme's primary color */
+}
+
+/* Subcategories list */
+.subcategories-list {
+  list-style-type: none;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+/* Child category item */
+.child-category, .subcategory-item {
+  margin: 0.3rem 0;
+}
+
+.child-category > a, .subcategory-item > a {
+  font-size: 1rem;
+  color: #96a879; /* Theme's light color */
+}
+
+/* Parent category indicator on single category page */
+.parent-category {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #253031; /* Theme's dark color */
+}
+
+/* Subcategories section on single category page */
+.subcategories-heading {
+  font-size: 1.1rem;
+  color: #96a879; /* Theme's light color */
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+}
+
+.subcategories-heading + .subcategories-list {
+  margin-top: 0.5rem;
+}
+
+/* Navigation Menu Categories Styling */
+
+/* Categories section in header */
+.app-header-categories {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+.app-header-category-title {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #dad865; /* Theme's primary color */
+}
+
+.app-header-category-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Category item styling */
+.app-header-category-item {
+  color: #96a879; /* Theme's light color */
+  text-decoration: none;
+  transition: color 0.2s;
+  display: block;
+}
+
+.app-header-category-item:hover {
+  color: #dad865; /* Theme's primary color */
+}
+
+/* Parent category in menu */
+.category-parent {
+  margin-bottom: 0.5rem;
+}
+
+.app-header-category-item.parent {
+  font-weight: bold;
+  color: #dad865; /* Theme's primary color */
+}
+
+/* Child categories container */
+.category-children {
+  margin-left: 1rem;
+  margin-top: 0.3rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Child category in menu */
+.app-header-category-item.child {
+  font-size: 0.9rem;
+  color: #96a879; /* Theme's light color */
+}
+
+/* Post count styling */
+.category-count {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  font-weight: normal;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-header-categories {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+  }
+  
+  .category-children {
+    margin-left: 0.7rem;
+  }
+}
