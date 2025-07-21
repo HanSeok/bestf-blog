@@ -2,7 +2,7 @@
 # Format: child_category: parent_category
 
 기초: 낚시
-Github: Dev
-Hugo: Dev
-jekyll: Dev
-junie: Dev
+github: dev
+hugo: dev
+jekyll: dev
+junie: dev
