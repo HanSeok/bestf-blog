@@ -1,3 +1,19 @@
+---
+title: "Junie와 함께-menu-categories수정작업"
+date: 2025-07-21T16:48:00+09:00
+draft: false
+tags: 
+  - junie
+  - AI
+  - webstorm
+  - jetbrain
+  - hugo
+categories:
+  - dev
+  - junie
+layout: post
+---
+
 # 계층적 카테고리 시스템 사용 가이드
 
 이 문서는 블로그에서 2단계 깊이의 계층적 카테고리를 사용하는 방법을 설명합니다.
