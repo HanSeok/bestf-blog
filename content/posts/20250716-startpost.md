@@ -2,6 +2,15 @@
 layout: post
 title: "첫 번째 포스트"
 date: 2025-07-16 12:00:00 +0900
+categories:
+- dev
+- github
+tags:
+- jekyll
+- github-pages
+- obsidian
+thumbnail: /assets/images/꿈돌이_낚시_생활_gpt.png
+draft: false
 ---
 
 vi를 사용해서 md를 만들고 글 작성을 마무리 해보겠습니다. 

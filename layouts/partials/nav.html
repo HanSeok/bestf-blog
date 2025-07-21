@@ -7,13 +7,65 @@
         <a class="app-header-menu-item" href="{{ $item.URL }}">{{ $item.Name }}</a>
     {{- end }}
 
-    {{/* 카테고리 섹션 - 카테고리가 하나 이상 있을 경우 표시합니다. */}}
+    {{/* 카테고리 섹션 - 계층적 카테고리를 표시합니다. */}}
     {{ if .Site.Taxonomies.categories }}
+        {{ $categoryData := partial "process-categories.html" . }}
+        {{ $parentCategories := index $categoryData "parentCategories" }}
+        {{ $childCategories := index $categoryData "childCategories" }}
+        
         <div class="app-header-categories">
             <span class="app-header-category-title">카테고리</span>
             <div class="app-header-category-items">
+                {{/* 부모 카테고리 표시 */}}
+                {{ range $parentCategories }}
+                    {{ $parentName := . }}
+                    {{ $parentCount := len (where site.RegularPages "Params.categories" "intersect" (slice $parentName)) }}
+                    
+                    <div class="category-parent">
+                        <a class="app-header-category-item parent" href="/categories/{{ $parentName | urlize }}/">
+                            {{ $parentName }} <span class="category-count">({{ $parentCount }})</span>
+                        </a>
+                        
+                        {{/* 자식 카테고리가 있는 경우 표시 */}}
+                        {{ if isset $childCategories $parentName }}
+                            <div class="category-children">
+                                {{ range index $childCategories $parentName }}
+                                    {{ $childName := . }}
+                                    {{ $childCount := len (where site.RegularPages "Params.categories" "intersect" (slice $childName)) }}
+                                    
+                                    <a class="app-header-category-item child" href="/categories/{{ $childName | urlize }}/">
+                                        {{ $childName }} <span class="category-count">({{ $childCount }})</span>
+                                    </a>
+                                {{ end }}
+                            </div>
+                        {{ end }}
+                    </div>
+                {{ end }}
+                
+                {{/* 계층에 속하지 않은 카테고리 표시 */}}
                 {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-                    <a class="app-header-category-item" href="/categories/{{ $name | urlize }}/">{{ $name }}</a>
+                    {{ $category := $name }}
+                    {{ $isParentOrChild := false }}
+                    
+                    {{ range $parentCategories }}
+                        {{ if eq . $category }}
+                            {{ $isParentOrChild = true }}
+                        {{ end }}
+                    {{ end }}
+                    
+                    {{ range $parent, $children := $childCategories }}
+                        {{ range $children }}
+                            {{ if eq . $category }}
+                                {{ $isParentOrChild = true }}
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                    
+                    {{ if not $isParentOrChild }}
+                        <a class="app-header-category-item" href="/categories/{{ $category | urlize }}/">
+                            {{ $category }} <span class="category-count">({{ len $taxonomy.Pages }})</span>
+                        </a>
+                    {{ end }}
                 {{ end }}
             </div>
         </div>
