@@ -1,0 +1,80 @@
+{{/* 
+  This partial processes categories and handles slash notation for hierarchical categories.
+  It returns a map with the following structure:
+  {
+    "categories": [list of all categories],
+    "parentCategories": [list of parent categories],
+    "childCategories": {map of parent -> children},
+    "relationships": {map of child -> parent}
+  }
+*/}}
+
+{{ $result := dict }}
+{{ $allCategories := slice }}
+{{ $parentCategories := slice }}
+{{ $childCategories := dict }}
+{{ $relationships := dict }}
+
+{{ range site.Taxonomies.categories }}
+  {{ $category := .Page.Title }}
+  {{ $allCategories = $allCategories | append $category }}
+  
+  {{ if strings.Contains $category "/" }}
+    {{ $parts := split $category "/" }}
+    {{ if ge (len $parts) 2 }}
+      {{ $parent := index $parts 0 }}
+      {{ $child := index $parts 1 }}
+      
+      {{ $relationships = merge $relationships (dict $child $parent) }}
+      
+      {{ if not (in $allCategories $parent) }}
+        {{ $allCategories = $allCategories | append $parent }}
+      {{ end }}
+      
+      {{ if not (in $allCategories $child) }}
+        {{ $allCategories = $allCategories | append $child }}
+      {{ end }}
+      
+      {{ if not (in $parentCategories $parent) }}
+        {{ $parentCategories = $parentCategories | append $parent }}
+      {{ end }}
+      
+      {{ if not (isset $childCategories $parent) }}
+        {{ $childCategories = merge $childCategories (dict $parent (slice $child)) }}
+      {{ else }}
+        {{ $children := index $childCategories $parent }}
+        {{ if not (in $children $child) }}
+          {{ $children = $children | append $child }}
+          {{ $childCategories = merge $childCategories (dict $parent $children) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ range $child, $parent := site.Data.parent_categories }}
+  {{ if not (isset $relationships $child) }}
+    {{ $relationships = merge $relationships (dict $child $parent) }}
+  {{ end }}
+  
+  {{ if not (in $parentCategories $parent) }}
+    {{ $parentCategories = $parentCategories | append $parent }}
+  {{ end }}
+  
+  {{ if not (isset $childCategories $parent) }}
+    {{ $childCategories = merge $childCategories (dict $parent (slice $child)) }}
+  {{ else }}
+    {{ $children := index $childCategories $parent }}
+    {{ if not (in $children $child) }}
+      {{ $children = $children | append $child }}
+      {{ $childCategories = merge $childCategories (dict $parent $children) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $result = merge $result (dict "categories" $allCategories) }}
+{{ $result = merge $result (dict "parentCategories" $parentCategories) }}
+{{ $result = merge $result (dict "childCategories" $childCategories) }}
+{{ $result = merge $result (dict "relationships" $relationships) }}
+
+{{ return $result }}
