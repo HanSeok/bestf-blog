@@ -1,16 +1,20 @@
-<nav class="menu">
-    <ul class="menu__inner">
-        {{/* hugo.toml에 설정된 기본 메뉴 (Home, About 등)를 표시합니다. */}}
-        {{- range .Site.Menus.main -}}
-        <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
-        {{- end -}}
+<nav class="app-header-menu">
+    {{/* hugo.toml에 설정된 기본 메뉴를 표시합니다. */}}
+    {{- range $key, $item := .Site.Menus.main }}
+        {{- if ne $key 0 }}
+            {{ $.Site.Params.menu_item_separator | default " - " | safeHTML }}
+        {{ end }}
+        <a class="app-header-menu-item" href="{{ $item.URL }}">{{ $item.Name }}</a>
+    {{- end }}
 
-        {{/* 포스트에 카테고리가 하나 이상 있을 경우, 구분선과 함께 카테고리 목록을 표시합니다. */}}
-        {{ if .Site.Taxonomies.categories -}}
-        <hr />
-        {{ range $name, $taxonomy := .Site.Taxonomies.categories -}}
-        <li><a href="/categories/{{ $name | urlize }}/">{{ $name }}</a></li>
-        {{ end -}}
-        {{ end -}}
-    </ul>
+    {{/* 포스트에 카테고리가 하나 이상 있을 경우, 구분선과 함께 카테고리 목록을 표시합니다. */}}
+    {{ if .Site.Taxonomies.categories }}
+        {{ $.Site.Params.menu_item_separator | default " - " | safeHTML }}
+        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+            <a class="app-header-menu-item" href="/categories/{{ $name | urlize }}/">{{ $name }}</a>
+            {{ if not (eq $name (index (last 1 ($.Site.Taxonomies.categories.Alphabetical.Reverse)) 0).Name) }}
+                {{ $.Site.Params.menu_item_separator | default " - " | safeHTML }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
 </nav>

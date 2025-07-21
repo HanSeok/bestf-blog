@@ -1,15 +1,18 @@
-<h1>HEADER 파일 테스트 중입니다</h1>
+<header class="app-header">
+    <a href="{{ "" | relURL }}"><img class="app-header-avatar" src="{{ .Site.Params.avatar | default "avatar.jpg" | relURL }}" alt="{{ .Site.Params.author | default "John Doe" }}" /></a>
+    <span class="app-header-title">{{ .Site.Title }}</span>
 
-<div class="header__inner">
-    <div class="header__logo">
-        <a href="{{ .Site.BaseURL | relLangURL }}">
-    <div class="logo">
-        {{ .Site.Title }}
+    {{/* 메뉴 영역을 별도의 partial 파일로 불러옵니다. */}}
+    {{ partial "nav.html" . }}
+
+    <p>{{ .Site.Params.description | default "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium." }}</p>
+    {{- with .Site.Params.social }}
+    <div class="app-header-social">
+        {{ range . }}
+        <a href="{{ .url }}" target="_blank" rel="noreferrer noopener me">
+            {{ partial "icon.html" (dict "ctx" $ "name" .icon "title" .name) }}
+        </a>
+        {{ end }}
     </div>
-</a>
-    </div>
-    {{ if .Site.Menus.main -}}
-        <div class="menu-trigger">{{ i18n "menu" }}</div>
     {{- end }}
-</div>
-{{- partial "nav.html" . -}} 
+</header>
