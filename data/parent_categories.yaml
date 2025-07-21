@@ -1,0 +1,5 @@
+# This file defines the parent-child relationships for categories
+# Format: child_category: parent_category
+
+기초: 낚시
+Github: Dev

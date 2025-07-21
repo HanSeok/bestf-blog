@@ -1,0 +1,60 @@
+{{ define "main" }}
+  <article>
+    <h1>{{ .Title }}</h1>
+    
+    <!-- Process categories with the custom partial -->
+    {{ $categoryData := partial "process-categories.html" . }}
+    {{ $processedRelationships := index $categoryData "relationships" }}
+    {{ $processedChildCategories := index $categoryData "childCategories" }}
+    
+    <!-- Group categories by parent -->
+    {{ $categories := .Data.Terms.ByCount }}
+    {{ $parentCategories := slice }}
+    {{ $childCategories := dict }}
+    
+    <!-- First, identify parent and child categories -->
+    {{ range $categories }}
+      {{ $category := .Page.Title }}
+      {{ $isChild := false }}
+      
+      {{ if isset $processedRelationships $category }}
+        {{ $isChild = true }}
+        {{ $parent := index $processedRelationships $category }}
+        {{ if not (isset $childCategories $parent) }}
+          {{ $childCategories = merge $childCategories (dict $parent (slice (dict "name" $category "count" .Count "url" .Page.RelPermalink))) }}
+        {{ else }}
+          {{ $children := index $childCategories $parent }}
+          {{ $children = $children | append (dict "name" $category "count" .Count "url" .Page.RelPermalink) }}
+          {{ $childCategories = merge $childCategories (dict $parent $children) }}
+        {{ end }}
+      {{ end }}
+      
+      {{ if not $isChild }}
+        {{ $parentCategories = $parentCategories | append (dict "name" $category "count" .Count "url" .Page.RelPermalink) }}
+      {{ end }}
+    {{ end }}
+    
+    <!-- Display parent categories with their children -->
+    <ul class="categories-list">
+      {{ range $parentCategories }}
+        <li class="category-item parent-category">
+          <a class="category-item-title" href="{{ .url }}">
+            {{ .name }} ({{ .count }})
+          </a>
+          
+          {{ if isset $childCategories .name }}
+            <ul class="subcategories-list">
+              {{ range index $childCategories .name }}
+                <li class="category-item child-category">
+                  <a class="category-item-title" href="{{ .url }}">
+                    {{ .name }} ({{ .count }})
+                  </a>
+                </li>
+              {{ end }}
+            </ul>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ul>
+  </article>
+{{ end }}
