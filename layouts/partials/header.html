@@ -1,1 +1,15 @@
 <h1>HEADER 파일 테스트 중입니다</h1>
+
+<div class="header__inner">
+    <div class="header__logo">
+        <a href="{{ .Site.BaseURL | relLangURL }}">
+    <div class="logo">
+        {{ .Site.Title }}
+    </div>
+</a>
+    </div>
+    {{ if .Site.Menus.main -}}
+        <div class="menu-trigger">{{ i18n "menu" }}</div>
+    {{- end }}
+</div>
+{{- partial "nav.html" . -}} 
