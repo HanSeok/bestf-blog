@@ -10,6 +10,7 @@ tags:
   - github-pages
   - obsidian
 thumbnail: /assets/images/꿈돌이_낚시_생활_gpt.png
+draft: false
 ---
 
 문서의 속성을 추가해 봅니다. 
