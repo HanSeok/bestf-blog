@@ -1,0 +1,49 @@
+// Custom styles for the blog
+
+// Styles for the category section in the header menu
+.app-header-menu {
+  margin: 1em 0;
+  font-size: 1rem;
+  color: $light-color;
+}
+
+.app-header-menu-item {
+  color: $light-color;
+  text-decoration: none;
+  
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.app-header-categories {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-header-category-title {
+  color: $primary-color;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+  display: block;
+}
+
+.app-header-category-items {
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-header-category-item {
+  color: $light-color;
+  text-decoration: none;
+  margin: 0.2em 0;
+  
+  &:hover {
+    color: $primary-color;
+  }
+}

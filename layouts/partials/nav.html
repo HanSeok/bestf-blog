@@ -7,14 +7,15 @@
         <a class="app-header-menu-item" href="{{ $item.URL }}">{{ $item.Name }}</a>
     {{- end }}
 
-    {{/* 포스트에 카테고리가 하나 이상 있을 경우, 구분선과 함께 카테고리 목록을 표시합니다. */}}
+    {{/* 카테고리 섹션 - 카테고리가 하나 이상 있을 경우 표시합니다. */}}
     {{ if .Site.Taxonomies.categories }}
-        {{ $.Site.Params.menu_item_separator | default " - " | safeHTML }}
-        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-            <a class="app-header-menu-item" href="/categories/{{ $name | urlize }}/">{{ $name }}</a>
-            {{ if not (eq $name (index (last 1 ($.Site.Taxonomies.categories.Alphabetical.Reverse)) 0).Name) }}
-                {{ $.Site.Params.menu_item_separator | default " - " | safeHTML }}
-            {{ end }}
-        {{ end }}
+        <div class="app-header-categories">
+            <span class="app-header-category-title">카테고리</span>
+            <div class="app-header-category-items">
+                {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+                    <a class="app-header-category-item" href="/categories/{{ $name | urlize }}/">{{ $name }}</a>
+                {{ end }}
+            </div>
+        </div>
     {{ end }}
 </nav>

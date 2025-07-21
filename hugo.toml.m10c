@@ -1,0 +1,60 @@
+baseURL = 'https://blog.bestf.net/'
+languageCode = "ko-kr"
+title = '끄적끄적'
+# themesDir = "../.."
+theme = 'm10c'
+# theme = 'book'
+
+publishDir = "public"
+
+[pagination]
+  pagerSize = 8
+
+# --- 메뉴 설정 ---
+# 상단에 표시될 메뉴를 설정합니다.
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 4
+
+[params]
+  author = "꿈돌이"
+  description = "꿈돌이 일상과 관심사에 대한 끄적이"
+  avatar = "/images/avatar.png"
+  menu_item_separator = " - "
+
+  # Default theme
+  # [params.style]
+  #   darkestColor = "#242930"
+  #   darkColor = "#353b43"
+  #   lightColor = "#afbac4"
+  #   lightestColor = "#ffffff"
+  #   primaryColor = "#57cc8a"
+
+  # Green theme
+  [params.style]
+    darkestColor = "#315659"
+    darkColor = "#253031"
+    lightColor = "#96a879"
+    lightestColor = "#fff"
+    primaryColor = "#dad865"
+
+  # Red theme
+  # [params.style]
+  #   darkestColor = "#d35050"
+  #   darkColor = "#212121"
+  #   lightColor = "#d6d6d6"
+  #   lightestColor = "#d3d3d3"
+  #   primaryColor = "#ffffff"
