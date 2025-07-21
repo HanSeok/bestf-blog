@@ -13,3 +13,5 @@ Thumbs.db
 *.log
 
 .hugo_build.lock
+public/
+resources/
