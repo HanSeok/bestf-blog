@@ -11,3 +11,5 @@ Thumbs.db
 
 # 로그
 *.log
+
+.hugo_build.lock
