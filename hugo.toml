@@ -20,9 +20,9 @@ publishDir = "public"
     url = "/tags/"
     weight = 2
   [[menu.main]]
-    identifier = "categorys"
-    name = "Categorys"
-    url = "/categorys/"
+    identifier = "categories"
+    name = "Categories"
+    url = "/categories/"
     weight = 3
   [[menu.main]]
     identifier = "about"
