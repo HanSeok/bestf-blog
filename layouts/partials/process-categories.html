@@ -52,22 +52,17 @@
   {{ end }}
 {{ end }}
 
-{{ range $child, $parent := site.Data.parent_categories }}
-  {{ if not (isset $relationships $child) }}
-    {{ $relationships = merge $relationships (dict $child $parent) }}
-  {{ end }}
-  
-  {{ if not (in $parentCategories $parent) }}
-    {{ $parentCategories = $parentCategories | append $parent }}
-  {{ end }}
-  
-  {{ if not (isset $childCategories $parent) }}
-    {{ $childCategories = merge $childCategories (dict $parent (slice $child)) }}
-  {{ else }}
-    {{ $children := index $childCategories $parent }}
-    {{ if not (in $children $child) }}
-      {{ $children = $children | append $child }}
+{{ with site.Data.parent_categories }}
+  {{ range $parent, $children := . }}
+    {{ if and $parent (gt (len $children) 0) }}
+      {{ $parentCategories = $parentCategories | append $parent }}
       {{ $childCategories = merge $childCategories (dict $parent $children) }}
+
+      {{ range $children }}
+        {{ if . }}
+          {{ $relationships = merge $relationships (dict . $parent) }}
+        {{ end }}
+      {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}

@@ -1,8 +1,14 @@
 # This file defines the parent-child relationships for categories
 # Format: child_category: parent_category
 
-기초: 낚시
-github: dev
-hugo: dev
-jekyll: dev
-junie: dev
+선상낚시:
+  - 기초
+  - 한치
+dev:
+  - github
+  - hugo
+  - jekyll
+  - junie
+미분류:
+  - default
+  - 끄적끄적
